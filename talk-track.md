@@ -75,7 +75,41 @@ I'll show two examples: a competitive analysis benchmarking SUNY's AI computing 
 
 ---
 
-## Slide 5: Demos
+## Slide 5: Student Lifecycle — "We Used to Have to Build This from Scratch"
+
+> **Time:** ~2-3 minutes
+
+"Now here's the bigger picture. Universities have been trying to build an AI platform for student success for years — one that covers the entire lifecycle from attracting and enrolling students, to supporting and engaging them, all the way through graduation and employment.
+
+*[reveal lifecycle bar]* This is the student journey. Three phases: Attract and Enroll, Support and Engage, Graduate, Complete, Employ. Every university has this funnel.
+
+*[reveal integrations bar]* To make AI work across this lifecycle, you need back-end integrations — your student information system, your LMS, your CRM, your internal databases. That's the plumbing.
+
+*[reveal AI capabilities]* Then you layer on the AI capabilities. On the enrollment side: automated admissions processing — AI that reads applications, scores candidates, routes paperwork. In the middle: student analytics, 24/7 AI support, and automated tutoring built on YOUR course content. And on the graduation side: AI for employability — career matching, alumni engagement, donation outreach.
+
+*[reveal platform bar]* All of this runs on Google Cloud Platform — secure, compliant, intelligent. The data governance, the identity management, the audit logging — it's all there.
+
+The point is: institutions used to have to build every one of these boxes from scratch. Custom engineering, custom integrations, months of development. With Gemini Enterprise, several of these capabilities come out of the box. Let me show you the one that gets the most excitement."
+
+---
+
+## Slide 6: AI Tutor — No Custom Build Required
+
+> **Time:** ~3 minutes
+
+"This is the one faculty love. An AI Tutor that runs on YOUR content — not general internet knowledge.
+
+*[reveal top cards]* Two key things make this work. First: **Your Content, Your Tutor.** Upload your syllabi, your textbooks, your lecture notes. The tutor answers student questions grounded only in YOUR materials. No hallucinations, no random internet answers — just your curriculum. This is NotebookLM under the hood.
+
+Second: **24/7 Student Support.** It's 2 AM during finals week. Office hours are over. The TA is asleep. Your AI Tutor is still answering questions, explaining concepts, and generating practice problems. For large lecture classes with 300+ students, this is transformative.
+
+*[reveal bottom cards]* It's also **adaptive** — a freshman asking about thermodynamics gets a different explanation than a senior. The tutor meets each student where they are. And it generates **practice questions and step-by-step solutions** for exam prep.
+
+*[reveal built-on bar]* Here's the key message: **this is built with Gemini Enterprise Gems and NotebookLM.** No engineering team required. A faculty member can set this up in an afternoon. Create a Gem with your course instructions, load your materials into NotebookLM, and your students have a tutor. That's the shift — what used to require a custom software project is now a configuration task."
+
+---
+
+## Slide 7: Demos
 
 > **Time:** Transition slide
 
@@ -99,7 +133,7 @@ I'll show two examples: a competitive analysis benchmarking SUNY's AI computing 
 
 ---
 
-## Slide 6: Thank You
+## Slide 8: Thank You
 
 > **Time:** ~1 minute
 

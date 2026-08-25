@@ -295,6 +295,146 @@ strong { color: var(--gc-blue); font-weight: 700; }
   z-index: 200;
 }
 
+/* Student lifecycle flow */
+.lifecycle-flow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 16px;
+  position: relative;
+}
+.lifecycle-phase {
+  flex: 1;
+  padding: 12px 24px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  position: relative;
+}
+.lifecycle-phase.blue-phase { background: var(--gc-blue); border-radius: 6px 0 0 6px; }
+.lifecycle-phase.yellow-phase { background: var(--gc-yellow); color: var(--gc-text); }
+.lifecycle-phase.green-phase { background: var(--gc-green); border-radius: 0 6px 6px 0; }
+.lifecycle-endpoint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 16px;
+  color: var(--gc-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.lifecycle-endpoint .material-symbols-outlined { font-size: 32px; color: var(--gc-secondary); }
+
+.ai-capabilities {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  margin-top: 20px;
+}
+.ai-cap-group { display: flex; flex-direction: column; gap: 10px; }
+.ai-cap-item {
+  background: var(--gc-blue-light);
+  border: 2px dashed var(--gc-blue);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gc-text);
+  text-align: center;
+}
+.ai-cap-item.yellow-cap {
+  background: #FFF8E1;
+  border-color: var(--gc-yellow);
+}
+.ai-cap-item.green-cap {
+  background: #E8F5E9;
+  border-color: var(--gc-green);
+}
+
+.platform-bar {
+  width: 100%;
+  background: #fff;
+  border: 2px solid var(--gc-blue);
+  border-radius: 8px;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  font-weight: 600;
+  color: var(--gc-blue);
+  font-size: 1rem;
+}
+
+.integrations-bar {
+  background: var(--gc-yellow);
+  border-radius: 8px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.integration-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  color: var(--gc-text);
+  font-weight: 500;
+}
+.integration-item .material-symbols-outlined { font-size: 28px; color: var(--gc-text); }
+
+/* AI Tutor slide */
+.tutor-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  margin-top: 24px;
+}
+.tutor-feature {
+  background: var(--gc-surface);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.tutor-feature .feat-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+}
+.tutor-feature .feat-icon .material-symbols-outlined { font-size: 22px; color: #fff; }
+.tutor-feature h3 { font-size: 1rem; margin-bottom: 4px; }
+.tutor-feature p { font-size: 0.85rem; color: var(--gc-secondary); line-height: 1.4; }
+
+.built-on-bar {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: var(--gc-surface);
+  border-radius: 8px;
+  border-left: 4px solid var(--gc-blue);
+}
+.built-on-bar .material-symbols-outlined { font-size: 28px; color: var(--gc-blue); }
+.built-on-bar span { font-size: 1rem; color: var(--gc-text); font-weight: 500; }
+
 @media (max-width: 700px) {
   .slide { padding: 40px 30px; }
   .card-grid.cols-3 { grid-template-columns: 1fr; }
@@ -446,8 +586,114 @@ strong { color: var(--gc-blue); font-weight: 700; }
     </div>
   </div>
 
-  <!-- Slide 5: Demos -->
-  <div class="slide" id="slide-5">
+  <!-- Slide 5: Student Lifecycle Architecture -->
+  <div class="slide" id="slide-5" style="padding: 40px 60px;">
+    <div class="gc-logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC04">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#5F6368">Cloud</span></div>
+    <div class="reveal" data-step="0">
+      <h2 style="font-size: 1.6rem;">We Used to Have to <strong>Build This from Scratch</strong></h2>
+      <p class="subtext" style="font-size: 0.95rem; margin-top: 4px;">AI Platform for Student Success — transforming the entire student lifecycle</p>
+    </div>
+
+    <!-- Lifecycle flow bar -->
+    <div class="lifecycle-flow reveal" data-step="1">
+      <div class="lifecycle-endpoint">
+        <span class="material-symbols-outlined">person</span>
+        Students
+      </div>
+      <div class="lifecycle-phase blue-phase">Attract and Enroll</div>
+      <div class="lifecycle-phase yellow-phase">Support and Engage</div>
+      <div class="lifecycle-phase green-phase">Graduate, Complete, Employ</div>
+      <div class="lifecycle-endpoint">
+        <span class="material-symbols-outlined">work</span>
+        Jobs
+      </div>
+    </div>
+
+    <!-- Back End Integrations -->
+    <div class="integrations-bar reveal" data-step="2">
+      <span style="font-weight: 700; font-size: 0.85rem;">Back End Integrations:</span>
+      <div class="integration-item"><span class="material-symbols-outlined">database</span>Internal Databases</div>
+      <div class="integration-item"><span class="material-symbols-outlined">school</span>LMS / SIS</div>
+      <div class="integration-item"><span class="material-symbols-outlined">contact_page</span>CRM / CMS</div>
+      <div class="integration-item"><span class="material-symbols-outlined">support_agent</span>Agent Desktop</div>
+    </div>
+
+    <!-- AI Capabilities mapped to phases -->
+    <div class="ai-capabilities reveal" data-step="3">
+      <div class="ai-cap-group">
+        <div class="ai-cap-item">AI for Automated<br>Admission Processes</div>
+      </div>
+      <div class="ai-cap-group">
+        <div class="ai-cap-item yellow-cap">Student Analytics</div>
+        <div class="ai-cap-item yellow-cap">AI for 24/7<br>Student Support</div>
+        <div class="ai-cap-item yellow-cap">AI for Automated Tutoring<br>with Your Own Content</div>
+      </div>
+      <div class="ai-cap-group">
+        <div class="ai-cap-item green-cap">AI for Employability,<br>Donation & Alumni</div>
+      </div>
+    </div>
+
+    <!-- Platform bar -->
+    <div class="platform-bar reveal" data-step="4">
+      <span class="material-symbols-outlined" style="color: var(--gc-blue);">cloud</span>
+      Google Cloud Platform — Secure, Compliant, Intelligent
+    </div>
+
+    <div class="gc-banner">
+      <div class="gc-band"></div><div class="gc-band"></div>
+      <div class="gc-band"></div><div class="gc-band"></div>
+    </div>
+  </div>
+
+  <!-- Slide 6: AI Tutor on Gemini Enterprise -->
+  <div class="slide" id="slide-6">
+    <div class="gc-logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC04">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#5F6368">Cloud</span></div>
+    <div class="reveal" data-step="0">
+      <p class="caption" style="text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--gc-green); margin-bottom: 8px;">Now Built Into Gemini Enterprise</p>
+      <h2><strong>AI Tutor</strong> — No Custom Build Required</h2>
+    </div>
+    <div class="tutor-features">
+      <div class="tutor-feature reveal-scale" data-step="1">
+        <div class="feat-icon" style="background: var(--gc-blue);"><span class="material-symbols-outlined">menu_book</span></div>
+        <div>
+          <h3>Your Content, Your Tutor</h3>
+          <p>Upload syllabi, textbooks, and lecture notes. The AI Tutor answers student questions grounded only in your materials — no hallucinations.</p>
+        </div>
+      </div>
+      <div class="tutor-feature reveal-scale" data-step="1">
+        <div class="feat-icon" style="background: var(--gc-green);"><span class="material-symbols-outlined">schedule</span></div>
+        <div>
+          <h3>24/7 Student Support</h3>
+          <p>Available at 2 AM during finals week. Answers questions, explains concepts, generates practice problems — when office hours aren't enough.</p>
+        </div>
+      </div>
+      <div class="tutor-feature reveal-scale" data-step="2">
+        <div class="feat-icon" style="background: var(--gc-purple);"><span class="material-symbols-outlined">tune</span></div>
+        <div>
+          <h3>Adaptive to Every Student</h3>
+          <p>Adjusts explanations based on student level — from introductory to advanced. Meets each student where they are.</p>
+        </div>
+      </div>
+      <div class="tutor-feature reveal-scale" data-step="2">
+        <div class="feat-icon" style="background: var(--gc-yellow);"><span class="material-symbols-outlined" style="color: var(--gc-text);">quiz</span></div>
+        <div>
+          <h3>Practice & Assessment</h3>
+          <p>Generates practice questions, walks through solutions step-by-step, and helps students prepare for exams with targeted review.</p>
+        </div>
+      </div>
+    </div>
+    <div class="built-on-bar reveal" data-step="3">
+      <span class="material-symbols-outlined">auto_awesome</span>
+      <span>Built with <strong style="color: var(--gc-blue);">Gemini Enterprise Gems</strong> + <strong style="color: var(--gc-blue);">NotebookLM</strong> — no engineering team required</span>
+    </div>
+    <div class="gc-banner">
+      <div class="gc-band"></div><div class="gc-band"></div>
+      <div class="gc-band"></div><div class="gc-band"></div>
+    </div>
+  </div>
+
+  <!-- Slide 7: Demos -->
+  <div class="slide" id="slide-7">
     <div class="gc-logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC04">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#5F6368">Cloud</span></div>
     <div class="reveal-blur" data-step="0" style="width: 100%;">
       <h1 style="font-size: 3.5rem;"><strong>Demos</strong></h1>
@@ -458,8 +704,8 @@ strong { color: var(--gc-blue); font-weight: 700; }
     </div>
   </div>
 
-  <!-- Slide 6: Thank You -->
-  <div class="slide" id="slide-6">
+  <!-- Slide 8: Thank You -->
+  <div class="slide" id="slide-8">
     <div class="gc-logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC04">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#5F6368">Cloud</span></div>
     <div class="reveal-blur" data-step="0" style="width: 100%;">
       <h1 style="font-size: 3.5rem;">Thank <strong>you</strong></h1>
@@ -474,10 +720,10 @@ strong { color: var(--gc-blue); font-weight: 700; }
 
 <!-- Progress dots -->
 <div class="progress" id="progress"></div>
-<div class="slide-number" id="slideNumber">1 / 6</div>
+<div class="slide-number" id="slideNumber">1 / 8</div>
 
 <script>
-const totalSlides = 6;
+const totalSlides = 8;
 let current = 0;
 let revealStep = {};
 for (let i = 0; i < totalSlides; i++) revealStep[i] = -1;
