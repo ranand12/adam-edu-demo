@@ -435,6 +435,120 @@ strong { color: var(--gc-blue); font-weight: 700; }
 .built-on-bar .material-symbols-outlined { font-size: 28px; color: var(--gc-blue); }
 .built-on-bar span { font-size: 1rem; color: var(--gc-text); font-weight: 500; }
 
+/* Multi-model flow diagram */
+.model-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  margin-top: 36px;
+}
+.model-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 36px;
+  border-radius: 16px;
+  min-width: 180px;
+  text-align: center;
+  position: relative;
+}
+.model-node.gemini-node {
+  background: linear-gradient(135deg, #4285F4 0%, #185ABC 100%);
+  color: #fff;
+  min-width: 240px;
+  padding: 32px 40px;
+  box-shadow: 0 8px 32px rgba(66,133,244,0.3);
+}
+.model-node.claude-node {
+  background: #F5F0EB;
+  border: 2px solid #D4A574;
+  color: var(--gc-text);
+}
+.model-node.other-node {
+  background: var(--gc-surface);
+  border: 2px solid var(--gc-border);
+  color: var(--gc-text);
+}
+.model-node .node-icon {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.model-node .node-icon.gemini-icon { background: rgba(255,255,255,0.2); }
+.model-node .node-icon.claude-icon { background: #D4A574; color: #fff; }
+.model-node .node-icon .material-symbols-outlined { font-size: 28px; }
+.model-node .node-label { font-weight: 700; font-size: 1.1rem; }
+.model-node .node-sublabel { font-size: 0.8rem; opacity: 0.8; }
+
+.model-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+}
+.model-connector-line {
+  width: 60px;
+  height: 3px;
+  background: var(--gc-border);
+  position: relative;
+}
+.model-connector-line::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -5px;
+  border: 6px solid transparent;
+  border-left: 8px solid var(--gc-border);
+}
+.model-connector-line.left::after {
+  right: auto; left: -1px;
+  border-left: none;
+  border-right: 8px solid var(--gc-border);
+}
+.model-connector-label {
+  font-size: 0.65rem;
+  color: var(--gc-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.model-benefit-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+  width: 100%;
+}
+.model-benefit {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--gc-surface);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gc-text);
+}
+.model-benefit .material-symbols-outlined { font-size: 22px; color: var(--gc-blue); flex-shrink: 0; }
+
+/* Connector cards */
+.connector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  margin-top: 24px;
+}
+
 @media (max-width: 700px) {
   .slide { padding: 40px 30px; }
   .card-grid.cols-3 { grid-template-columns: 1fr; }
@@ -452,7 +566,7 @@ strong { color: var(--gc-blue); font-weight: 700; }
       <h1>What Can<br><strong>Gemini Enterprise</strong><br>Do?</h1>
     </div>
     <div class="reveal" data-step="1" style="margin-top: 24px;">
-      <p class="subtext">9 capabilities transforming higher education</p>
+      <p class="subtext">Gemini Enterprise Use Cases</p>
     </div>
     <div class="gc-banner">
       <div class="gc-band"></div><div class="gc-band"></div>
@@ -460,81 +574,38 @@ strong { color: var(--gc-blue); font-weight: 700; }
     </div>
   </div>
 
-  <!-- Slide 2: Content & Research -->
+  <!-- Slide 2: File Analysis & Code Generation -->
   <div class="slide" id="slide-2">
     <div class="gc-logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC04">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#5F6368">Cloud</span></div>
     <div class="reveal" data-step="0">
-      <p class="caption" style="text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--gc-blue); margin-bottom: 8px;">Content & Research</p>
-      <h2>Analyze, Search, and <strong>Create</strong></h2>
+      <h2>File Analysis & <strong>Code Generation</strong></h2>
     </div>
-    <div class="detail-grid">
+    <div class="detail-grid" style="margin-top: 20px;">
       <div class="detail-card reveal" data-step="1">
         <div class="detail-icon" style="background: var(--gc-blue);">
-          <span class="material-symbols-outlined">description</span>
+          <span class="material-symbols-outlined">upload_file</span>
         </div>
         <div class="detail-content">
-          <h3>AI Assistant — File Analysis</h3>
-          <p>Upload research papers, datasets, and documents. Gemini extracts key insights, summarizes findings, and answers questions about your files.</p>
+          <h3>Upload Any File — Get Instant Analysis</h3>
+          <p>Drop CSVs, PDFs, spreadsheets, or research papers. Gemini reads the content, extracts insights, and answers questions — your data never leaves your tenant.</p>
         </div>
       </div>
       <div class="detail-card reveal" data-step="2">
-        <div class="detail-icon" style="background: var(--gc-red);">
-          <span class="material-symbols-outlined">travel_explore</span>
-        </div>
-        <div class="detail-content">
-          <h3>Grounded Web Search</h3>
-          <p>Search the live web for the latest literature, grant opportunities, and research developments — with cited sources you can verify.</p>
-        </div>
-      </div>
-      <div class="detail-card reveal" data-step="3">
-        <div class="detail-icon" style="background: var(--gc-yellow);">
-          <span class="material-symbols-outlined" style="color: var(--gc-text);">palette</span>
-        </div>
-        <div class="detail-content">
-          <h3>Media Generation</h3>
-          <p>Create diagrams, research posters, infographics, and presentation visuals directly from prompts — no design tools required.</p>
-        </div>
-      </div>
-    </div>
-    <div class="gc-banner">
-      <div class="gc-band"></div><div class="gc-band"></div>
-      <div class="gc-band"></div><div class="gc-band"></div>
-    </div>
-  </div>
-
-  <!-- Slide 3: Knowledge & Discovery -->
-  <div class="slide" id="slide-3">
-    <div class="gc-logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC04">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#5F6368">Cloud</span></div>
-    <div class="reveal" data-step="0">
-      <p class="caption" style="text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--gc-green); margin-bottom: 8px;">Knowledge & Discovery</p>
-      <h2>Synthesize, Discover, and <strong>Explore</strong></h2>
-    </div>
-    <div class="detail-grid">
-      <div class="detail-card reveal" data-step="1">
         <div class="detail-icon" style="background: var(--gc-green);">
-          <span class="material-symbols-outlined">smart_toy</span>
+          <span class="material-symbols-outlined">code</span>
         </div>
         <div class="detail-content">
-          <h3>Research Knowledge Agents</h3>
-          <p>Build reusable Gems — custom AI assistants for lab protocols, grant writing, methodology guidance, and domain-specific expertise.</p>
-        </div>
-      </div>
-      <div class="detail-card reveal" data-step="2">
-        <div class="detail-icon" style="background: var(--gc-purple);">
-          <span class="material-symbols-outlined">auto_stories</span>
-        </div>
-        <div class="detail-content">
-          <h3>NotebookLM Literature Review</h3>
-          <p>Upload multiple papers and let NotebookLM synthesize themes, generate audio overviews, and answer cross-document questions.</p>
+          <h3>Code Generation from Data</h3>
+          <p>Ask Gemini to generate Python scripts, SQL queries, or data visualizations directly from your uploaded files. From raw data to working code in one prompt.</p>
         </div>
       </div>
       <div class="detail-card reveal" data-step="3">
-        <div class="detail-icon" style="background: var(--gc-teal);">
-          <span class="material-symbols-outlined">cognition</span>
+        <div class="detail-icon" style="background: var(--gc-purple);">
+          <span class="material-symbols-outlined">compare_arrows</span>
         </div>
         <div class="detail-content">
-          <h3>Deep Research</h3>
-          <p>Launch comprehensive, web-wide research queries that return structured reports with citations — the depth of a research assistant in minutes.</p>
+          <h3>Cross-Reference Across Files</h3>
+          <p>Upload multiple documents in one conversation — Gemini synthesizes across all of them. Cross-reference a dataset with a paper to find actionable next steps.</p>
         </div>
       </div>
     </div>
@@ -544,39 +615,116 @@ strong { color: var(--gc-blue); font-weight: 700; }
     </div>
   </div>
 
-  <!-- Slide 4: Platform & Extensibility -->
+  <!-- Slide 3: Multi-Model Access -->
+  <div class="slide centered" id="slide-3">
+    <div class="gc-logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC04">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#5F6368">Cloud</span></div>
+    <div class="reveal" data-step="0" style="width: 100%; text-align: left;">
+      <h2>Connect to <strong>Multiple AI Models</strong></h2>
+    </div>
+
+    <!-- Visual flow: Claude ← Gemini Enterprise → Other Models -->
+    <div class="model-flow reveal-scale" data-step="1">
+      <div class="model-node claude-node">
+        <div class="node-icon claude-icon">
+          <span style="font-size: 24px; font-weight: 700; color: #fff;">C</span>
+        </div>
+        <div class="node-label">Claude</div>
+        <div class="node-sublabel">Anthropic</div>
+      </div>
+
+      <div class="model-connector">
+        <div class="model-connector-label">API</div>
+        <div class="model-connector-line left"></div>
+      </div>
+
+      <div class="model-node gemini-node">
+        <div class="node-icon gemini-icon">
+          <span class="material-symbols-outlined" style="color: #fff;">auto_awesome</span>
+        </div>
+        <div class="node-label">Gemini Enterprise</div>
+        <div class="node-sublabel">Your Secure Hub</div>
+      </div>
+
+      <div class="model-connector">
+        <div class="model-connector-label">API</div>
+        <div class="model-connector-line"></div>
+      </div>
+
+      <div class="model-node other-node">
+        <div class="node-icon" style="background: var(--gc-border);">
+          <span class="material-symbols-outlined" style="color: var(--gc-text);">model_training</span>
+        </div>
+        <div class="node-label">Other Models</div>
+        <div class="node-sublabel">Open & Partner</div>
+      </div>
+    </div>
+
+    <div class="model-benefit-row reveal" data-step="2">
+      <div class="model-benefit">
+        <span class="material-symbols-outlined">security</span>
+        One governance layer — all models flow through your institution's policies
+      </div>
+      <div class="model-benefit">
+        <span class="material-symbols-outlined">swap_horiz</span>
+        Pick the best model for each task — reasoning, code, creative, analysis
+      </div>
+      <div class="model-benefit">
+        <span class="material-symbols-outlined">shield</span>
+        Data stays in your Google Workspace tenant — no third-party exposure
+      </div>
+    </div>
+
+    <div class="gc-banner">
+      <div class="gc-band"></div><div class="gc-band"></div>
+      <div class="gc-band"></div><div class="gc-band"></div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Connectors & Custom Agents -->
   <div class="slide" id="slide-4">
     <div class="gc-logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC04">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#5F6368">Cloud</span></div>
     <div class="reveal" data-step="0">
-      <p class="caption" style="text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--gc-dark-blue); margin-bottom: 8px;">Platform & Extensibility</p>
-      <h2>Connect, Extend, and <strong>Build</strong></h2>
+      <h2>External Connectors & <strong>Custom Agents</strong></h2>
     </div>
-    <div class="detail-grid">
-      <div class="detail-card reveal" data-step="1">
-        <div class="detail-icon" style="background: var(--gc-dark-blue);">
-          <span class="material-symbols-outlined">hub</span>
+    <div class="connector-grid">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="detail-card reveal" data-step="1" style="flex: 1;">
+          <div class="detail-icon" style="background: var(--gc-sky);">
+            <span class="material-symbols-outlined">cable</span>
+          </div>
+          <div class="detail-content">
+            <h3>External Connectors</h3>
+            <p>Connect Gemini to your SIS, LMS, CRM, HR systems, and research databases. Bring institutional data into AI conversations — securely, without moving data out.</p>
+          </div>
         </div>
-        <div class="detail-content">
-          <h3>Multi-Model Access</h3>
-          <p>Connect to multiple AI models — including Claude from Anthropic — directly through Gemini Enterprise. Choose the best model for every task.</p>
+        <div class="detail-card reveal" data-step="2" style="flex: 1;">
+          <div class="detail-icon" style="background: var(--gc-teal);">
+            <span class="material-symbols-outlined">database</span>
+          </div>
+          <div class="detail-content">
+            <h3>Your Data, AI-Ready</h3>
+            <p>Query enrollment trends, analyze budget data, search grant databases — all through natural language. No SQL, no exports, no waiting on IT.</p>
+          </div>
         </div>
       </div>
-      <div class="detail-card reveal" data-step="2">
-        <div class="detail-icon" style="background: var(--gc-sky);">
-          <span class="material-symbols-outlined">cable</span>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="detail-card reveal" data-step="3" style="flex: 1;">
+          <div class="detail-icon" style="background: var(--gc-coral);">
+            <span class="material-symbols-outlined">robot_2</span>
+          </div>
+          <div class="detail-content">
+            <h3>Custom Agents</h3>
+            <p>Build purpose-built AI agents for your institution — not simple chatbots, but agents that take actions, connect to systems, and handle multi-step workflows.</p>
+          </div>
         </div>
-        <div class="detail-content">
-          <h3>External Connectors</h3>
-          <p>Link Gemini to external data sources, APIs, and institutional tools — bring your university's data into the AI conversation.</p>
-        </div>
-      </div>
-      <div class="detail-card reveal" data-step="3">
-        <div class="detail-icon" style="background: var(--gc-coral);">
-          <span class="material-symbols-outlined">robot_2</span>
-        </div>
-        <div class="detail-content">
-          <h3>Custom Agents</h3>
-          <p>Build purpose-built AI agents for specific university needs — like <strong>Grants AI</strong> for funding discovery and <strong>AI Tutor</strong> for personalized student support.</p>
+        <div class="detail-card reveal" data-step="4" style="flex: 1;">
+          <div class="detail-icon" style="background: var(--gc-green);">
+            <span class="material-symbols-outlined">precision_manufacturing</span>
+          </div>
+          <div class="detail-content">
+            <h3>Examples in Higher Ed</h3>
+            <p><strong>Grants AI</strong> — discovers funding, checks eligibility, drafts proposals. <strong>AI Tutor</strong> — personalized student support from your own course content. <strong>Admissions Agent</strong> — automates application processing.</p>
+          </div>
         </div>
       </div>
     </div>
