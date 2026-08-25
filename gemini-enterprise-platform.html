@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gemini Enterprise — Platform Capabilities</title>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+<style>
+:root {
+  --gc-blue: #4285F4;
+  --gc-red: #EA4335;
+  --gc-yellow: #FBBC04;
+  --gc-green: #34A853;
+  --gc-dark-blue: #185ABC;
+  --gc-purple: #8E24AA;
+  --gc-teal: #00897B;
+  --gc-coral: #EE4D5D;
+  --gc-sky: #078EFB;
+  --gc-text: #202124;
+  --gc-secondary: #5F6368;
+  --gc-border: #BDC1C6;
+  --gc-surface: #F8F9FA;
+  --gc-bg: #FFFFFF;
+  --font: 'Google Sans', Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  color: var(--gc-text);
+  background: var(--gc-bg);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-size: 24px;
+  vertical-align: -0.125em;
+  display: inline-block;
+  line-height: 1;
+  flex-shrink: 0;
+}
+strong { color: var(--gc-blue); font-weight: 700; }
+
+/* Logo */
+.gc-logo {
+  position: fixed;
+  bottom: 24px;
+  left: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.7;
+}
+/* Banner */
+.gc-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 8px;
+  display: flex;
+}
+.gc-banner .b { flex: 1; }
+.gc-banner .b:nth-child(1) { background: var(--gc-blue); }
+.gc-banner .b:nth-child(2) { background: var(--gc-red); }
+.gc-banner .b:nth-child(3) { background: var(--gc-yellow); }
+.gc-banner .b:nth-child(4) { background: var(--gc-green); }
+
+/* Page title */
+.page-title {
+  text-align: center;
+  margin-bottom: 48px;
+  animation: fadeUp 0.6s ease both;
+}
+.page-title h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.page-title p {
+  color: var(--gc-secondary);
+  font-size: 1.1rem;
+  margin-top: 8px;
+}
+
+/* Main layout */
+.platform-layout {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Center hub */
+.hub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 32px;
+  min-width: 220px;
+  position: relative;
+  z-index: 2;
+  animation: scaleIn 0.5s ease both 0.3s;
+}
+.hub-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gc-blue) 0%, var(--gc-dark-blue) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 40px rgba(66,133,244,0.3);
+}
+.hub-circle img { width: 80px; height: 80px; object-fit: contain; }
+.hub-label {
+  margin-top: 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--gc-text);
+}
+.hub-sublabel {
+  font-size: 0.8rem;
+  color: var(--gc-secondary);
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* Connector lines from hub to columns */
+.connector-arm {
+  display: flex;
+  align-items: center;
+  width: 48px;
+  flex-shrink: 0;
+  position: relative;
+}
+.connector-arm::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gc-border) 0%, var(--gc-blue) 100%);
+  border-radius: 2px;
+}
+.connector-arm.right::before {
+  background: linear-gradient(90deg, var(--gc-blue) 0%, var(--gc-border) 100%);
+}
+
+/* Capability columns */
+.cap-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cap-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.cap-header .material-symbols-outlined { font-size: 24px; color: #fff; }
+.cap-header.blue { background: var(--gc-blue); }
+.cap-header.green { background: var(--gc-green); }
+.cap-header.red { background: var(--gc-red); }
+
+.cap-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cap-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--gc-surface);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+.cap-item:hover {
+  border-color: var(--gc-blue);
+  box-shadow: 0 4px 16px rgba(66,133,244,0.1);
+  transform: translateY(-1px);
+}
+.cap-item .item-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+.cap-item .item-icon .material-symbols-outlined { font-size: 20px; color: #fff; }
+.cap-item .item-text {
+  display: flex;
+  flex-direction: column;
+}
+.cap-item .item-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--gc-text);
+}
+.cap-item .item-desc {
+  font-size: 0.75rem;
+  color: var(--gc-secondary);
+  margin-top: 2px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+.cap-column:nth-child(1) .cap-header,
+.cap-column:nth-child(1) .cap-item { animation: fadeUp 0.5s ease both; }
+.cap-column:nth-child(1) .cap-header { animation-delay: 0.5s; }
+.cap-column:nth-child(1) .cap-item:nth-child(1) { animation-delay: 0.6s; }
+.cap-column:nth-child(1) .cap-item:nth-child(2) { animation-delay: 0.7s; }
+.cap-column:nth-child(1) .cap-item:nth-child(3) { animation-delay: 0.8s; }
+.cap-column:nth-child(1) .cap-item:nth-child(4) { animation-delay: 0.9s; }
+.cap-column:nth-child(1) .cap-item:nth-child(5) { animation-delay: 1.0s; }
+
+.cap-column:last-child .cap-header,
+.cap-column:last-child .cap-item { animation: fadeUp 0.5s ease both; }
+.cap-column:last-child .cap-header { animation-delay: 0.5s; }
+.cap-column:last-child .cap-item:nth-child(1) { animation-delay: 0.6s; }
+.cap-column:last-child .cap-item:nth-child(2) { animation-delay: 0.7s; }
+.cap-column:last-child .cap-item:nth-child(3) { animation-delay: 0.8s; }
+.cap-column:last-child .cap-item:nth-child(4) { animation-delay: 0.9s; }
+
+/* Bottom row */
+.bottom-section {
+  max-width: 1200px;
+  width: 100%;
+  margin-top: 32px;
+  animation: fadeUp 0.5s ease both 1.1s;
+}
+.bottom-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: var(--gc-red);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+.bottom-header .material-symbols-outlined { font-size: 24px; color: #fff; }
+.bottom-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .platform-layout { flex-direction: column; align-items: center; }
+  .connector-arm { width: 100%; height: 32px; }
+  .connector-arm::before { top: 0; bottom: 0; left: 50%; width: 3px; height: 100%; }
+  .bottom-items { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-title">
+  <h1>What Makes <strong>Gemini Enterprise</strong> a Platform</h1>
+  <p>One interface — multiple models, frameworks, and connectors</p>
+</div>
+
+<div class="platform-layout">
+
+  <!-- Left column: Models -->
+  <div class="cap-column">
+    <div class="cap-header blue">
+      <span class="material-symbols-outlined">hub</span>
+      Multiple Models (Model Garden)
+    </div>
+    <div class="cap-items">
+      <div class="cap-item">
+        <div class="item-icon" style="background: var(--gc-blue);">
+          <span class="material-symbols-outlined">auto_awesome</span>
+        </div>
+        <div class="item-text">
+          <span class="item-name">Gemini</span>
+          <span class="item-desc">Pro, Flash, Ultra — Google's frontier models</span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="item-icon" style="background: #D4A574;">C</div>
+        <div class="item-text">
+          <span class="item-name">Claude</span>
+          <span class="item-desc">Anthropic — reasoning, analysis, code</span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="item-icon" style="background: var(--gc-dark-blue);">
+          <span class="material-symbols-outlined">model_training</span>
+        </div>
+        <div class="item-text">
+          <span class="item-name">Llama, Mistral & More</span>
+          <span class="item-desc">Open models from Model Garden</span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="item-icon" style="background: var(--gc-teal);">
+          <span class="material-symbols-outlined">tune</span>
+        </div>
+        <div class="item-text">
+          <span class="item-name">Fine-Tuned Models</span>
+          <span class="item-desc">Your custom models on Vertex AI</span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="item-icon" style="background: var(--gc-purple);">
+          <span class="material-symbols-outlined">image</span>
+        </div>
+        <div class="item-text">
+          <span class="item-name">Imagen & Veo</span>
+          <span class="item-desc">Image and video generation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left connector -->
+  <div class="connector-arm"></div>
+
+  <!-- Center hub -->
+  <div class="hub">
+    <div class="hub-circle">
+      <img src="data:image/webp;base64,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" alt="Gemini Enterprise" />
+    </div>
+    <div class="hub-label">Gemini Enterprise</div>
+    <div class="hub-sublabel">Your Secure AI Hub</div>
+  </div>
+
+  <!-- Right connector -->
+  <div class="connector-arm right"></div>
+
+  <!-- Right column: Frameworks -->
+  <div class="cap-column">
+    <div class="cap-header green">
+      <span class="material-symbols-outlined">account_tree</span>
+      Multiple Agentic Frameworks
+    </div>
+    <div class="cap-items">
+      <div class="cap-item">
+        <div class="item-icon" style="background: var(--gc-green);">
+          <span class="material-symbols-outlined">smart_toy</span>
+        </div>
+        <div class="item-text">
+          <span class="item-name">Agent Development Kit (ADK)</span>
+          <span class="item-desc">Google's native agent framework</span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="item-icon" style="background: #1C3C3C; font-size: 16px;">🦜</div>
+        <div class="item-text">
+          <span class="item-name">LangChain / LangGraph</span>
+          <span class="item-desc">Chain-based orchestration & graphs</span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="item-icon" style="background: var(--gc-sky);">
+          <span class="material-symbols-outlined">swap_calls</span>
+        </div>
+        <div class="item-text">
+          <span class="item-name">Agent-to-Agent (A2A)</span>
+          <span class="item-desc">Inter-agent communication protocol</span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="item-icon" style="background: var(--gc-coral);">
+          <span class="material-symbols-outlined">developers</span>
+        </div>
+        <div class="item-text">
+          <span class="item-name">CrewAI & Others</span>
+          <span class="item-desc">Bring your own agentic framework</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Bottom: Connectors & Tools -->
+<div class="bottom-section">
+  <div class="bottom-header">
+    <span class="material-symbols-outlined">cable</span>
+    Multiple External Connectors & Tools
+  </div>
+  <div class="bottom-items">
+    <div class="cap-item">
+      <div class="item-icon" style="background: var(--gc-red);">
+        <span class="material-symbols-outlined">settings_input_component</span>
+      </div>
+      <div class="item-text">
+        <span class="item-name">MCP (Model Context Protocol)</span>
+        <span class="item-desc">Universal tool connectivity standard</span>
+      </div>
+    </div>
+    <div class="cap-item">
+      <div class="item-icon" style="background: var(--gc-blue);">
+        <span class="material-symbols-outlined">database</span>
+      </div>
+      <div class="item-text">
+        <span class="item-name">Data Connectors</span>
+        <span class="item-desc">BigQuery, Cloud SQL, AlloyDB, Spanner</span>
+      </div>
+    </div>
+    <div class="cap-item">
+      <div class="item-icon" style="background: var(--gc-green);">
+        <span class="material-symbols-outlined">extension</span>
+      </div>
+      <div class="item-text">
+        <span class="item-name">Google Workspace</span>
+        <span class="item-desc">Drive, Docs, Sheets, Calendar, Gmail</span>
+      </div>
+    </div>
+    <div class="cap-item">
+      <div class="item-icon" style="background: var(--gc-purple);">
+        <span class="material-symbols-outlined">api</span>
+      </div>
+      <div class="item-text">
+        <span class="item-name">Custom APIs & Tools</span>
+        <span class="item-desc">REST, gRPC, OpenAPI — any external service</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gc-logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC04">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#5F6368">Cloud</span></div>
+<div class="gc-banner"><div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div></div>
+
+</body>
+</html>
