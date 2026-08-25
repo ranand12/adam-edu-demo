@@ -110,13 +110,14 @@ strong { color: var(--gc-blue); font-weight: 700; }
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--gc-blue) 0%, var(--gc-dark-blue) 100%);
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 40px rgba(66,133,244,0.3);
+  box-shadow: 0 8px 32px rgba(66,133,244,0.2);
+  border: 3px solid var(--gc-blue);
 }
-.hub-circle img { width: 80px; height: 80px; object-fit: contain; }
+.hub-circle img { width: 90px; height: 90px; object-fit: contain; }
 .hub-label {
   margin-top: 16px;
   font-size: 1.1rem;
@@ -179,14 +180,14 @@ strong { color: var(--gc-blue); font-weight: 700; }
 .cap-items {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .cap-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 18px;
+  padding: 12px 16px;
   background: var(--gc-surface);
   border: 1px solid rgba(0,0,0,0.06);
   border-radius: 10px;
@@ -219,11 +220,6 @@ strong { color: var(--gc-blue); font-weight: 700; }
   font-size: 0.9rem;
   color: var(--gc-text);
 }
-.cap-item .item-desc {
-  font-size: 0.75rem;
-  color: var(--gc-secondary);
-  margin-top: 2px;
-}
 
 /* Animations */
 @keyframes fadeUp {
@@ -241,7 +237,6 @@ strong { color: var(--gc-blue); font-weight: 700; }
 .cap-column:nth-child(1) .cap-item:nth-child(2) { animation-delay: 0.7s; }
 .cap-column:nth-child(1) .cap-item:nth-child(3) { animation-delay: 0.8s; }
 .cap-column:nth-child(1) .cap-item:nth-child(4) { animation-delay: 0.9s; }
-.cap-column:nth-child(1) .cap-item:nth-child(5) { animation-delay: 1.0s; }
 
 .cap-column:last-child .cap-header,
 .cap-column:last-child .cap-item { animation: fadeUp 0.5s ease both; }
@@ -306,15 +301,13 @@ strong { color: var(--gc-blue); font-weight: 700; }
           <span class="material-symbols-outlined">auto_awesome</span>
         </div>
         <div class="item-text">
-          <span class="item-name">Gemini</span>
-          <span class="item-desc">Pro, Flash, Ultra — Google's frontier models</span>
+          <span class="item-name">Gemini (Pro, Flash, Ultra)</span>
         </div>
       </div>
       <div class="cap-item">
         <div class="item-icon" style="background: #D4A574;">C</div>
         <div class="item-text">
-          <span class="item-name">Claude</span>
-          <span class="item-desc">Anthropic — reasoning, analysis, code</span>
+          <span class="item-name">Claude (Anthropic)</span>
         </div>
       </div>
       <div class="cap-item">
@@ -323,7 +316,6 @@ strong { color: var(--gc-blue); font-weight: 700; }
         </div>
         <div class="item-text">
           <span class="item-name">Llama, Mistral & More</span>
-          <span class="item-desc">Open models from Model Garden</span>
         </div>
       </div>
       <div class="cap-item">
@@ -331,17 +323,7 @@ strong { color: var(--gc-blue); font-weight: 700; }
           <span class="material-symbols-outlined">tune</span>
         </div>
         <div class="item-text">
-          <span class="item-name">Fine-Tuned Models</span>
-          <span class="item-desc">Your custom models on Vertex AI</span>
-        </div>
-      </div>
-      <div class="cap-item">
-        <div class="item-icon" style="background: var(--gc-purple);">
-          <span class="material-symbols-outlined">image</span>
-        </div>
-        <div class="item-text">
-          <span class="item-name">Imagen & Veo</span>
-          <span class="item-desc">Image and video generation</span>
+          <span class="item-name">Fine-Tuned & Custom Models</span>
         </div>
       </div>
     </div>
@@ -375,14 +357,12 @@ strong { color: var(--gc-blue); font-weight: 700; }
         </div>
         <div class="item-text">
           <span class="item-name">Agent Development Kit (ADK)</span>
-          <span class="item-desc">Google's native agent framework</span>
         </div>
       </div>
       <div class="cap-item">
         <div class="item-icon" style="background: #1C3C3C; font-size: 16px;">🦜</div>
         <div class="item-text">
           <span class="item-name">LangChain / LangGraph</span>
-          <span class="item-desc">Chain-based orchestration & graphs</span>
         </div>
       </div>
       <div class="cap-item">
@@ -391,7 +371,6 @@ strong { color: var(--gc-blue); font-weight: 700; }
         </div>
         <div class="item-text">
           <span class="item-name">Agent-to-Agent (A2A)</span>
-          <span class="item-desc">Inter-agent communication protocol</span>
         </div>
       </div>
       <div class="cap-item">
@@ -400,7 +379,6 @@ strong { color: var(--gc-blue); font-weight: 700; }
         </div>
         <div class="item-text">
           <span class="item-name">CrewAI & Others</span>
-          <span class="item-desc">Bring your own agentic framework</span>
         </div>
       </div>
     </div>
@@ -421,7 +399,6 @@ strong { color: var(--gc-blue); font-weight: 700; }
       </div>
       <div class="item-text">
         <span class="item-name">MCP (Model Context Protocol)</span>
-        <span class="item-desc">Universal tool connectivity standard</span>
       </div>
     </div>
     <div class="cap-item">
@@ -430,7 +407,6 @@ strong { color: var(--gc-blue); font-weight: 700; }
       </div>
       <div class="item-text">
         <span class="item-name">Data Connectors</span>
-        <span class="item-desc">BigQuery, Cloud SQL, AlloyDB, Spanner</span>
       </div>
     </div>
     <div class="cap-item">
@@ -439,7 +415,6 @@ strong { color: var(--gc-blue); font-weight: 700; }
       </div>
       <div class="item-text">
         <span class="item-name">Google Workspace</span>
-        <span class="item-desc">Drive, Docs, Sheets, Calendar, Gmail</span>
       </div>
     </div>
     <div class="cap-item">
@@ -448,7 +423,6 @@ strong { color: var(--gc-blue); font-weight: 700; }
       </div>
       <div class="item-text">
         <span class="item-name">Custom APIs & Tools</span>
-        <span class="item-desc">REST, gRPC, OpenAPI — any external service</span>
       </div>
     </div>
   </div>
