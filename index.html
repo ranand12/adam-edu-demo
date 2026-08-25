@@ -456,15 +456,16 @@ strong { color: var(--gc-blue); font-weight: 700; }
   position: relative;
 }
 .model-node.gemini-node {
-  background: linear-gradient(135deg, #4285F4 0%, #185ABC 100%);
-  color: #fff;
+  background: #fff;
+  border: 2px solid var(--gc-blue);
+  color: var(--gc-text);
   min-width: 240px;
   padding: 32px 40px;
-  box-shadow: 0 8px 32px rgba(66,133,244,0.3);
+  box-shadow: 0 8px 32px rgba(66,133,244,0.15);
 }
 .model-node.claude-node {
-  background: #F5F0EB;
-  border: 2px solid #D4A574;
+  background: #fff;
+  border: 2px solid var(--gc-border);
   color: var(--gc-text);
 }
 .model-node.other-node {
@@ -480,8 +481,8 @@ strong { color: var(--gc-blue); font-weight: 700; }
   justify-content: center;
   font-size: 1.5rem;
 }
-.model-node .node-icon.gemini-icon { background: rgba(255,255,255,0.2); }
-.model-node .node-icon.claude-icon { background: #D4A574; color: #fff; }
+.model-node .node-icon.gemini-icon { background: #fff; }
+.model-node .node-icon.claude-icon { background: #fff; }
 .model-node .node-icon .material-symbols-outlined { font-size: 28px; }
 .model-node .node-label { font-weight: 700; font-size: 1.1rem; }
 .model-node .node-sublabel { font-size: 0.8rem; opacity: 0.8; }
@@ -522,23 +523,34 @@ strong { color: var(--gc-blue); font-weight: 700; }
 
 .model-benefit-row {
   display: flex;
-  gap: 16px;
-  margin-top: 28px;
+  gap: 20px;
+  margin-top: 36px;
   width: 100%;
 }
 .model-benefit {
   flex: 1;
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 18px;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 22px;
   background: var(--gc-surface);
-  border-radius: 8px;
-  font-size: 0.85rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  font-size: 1rem;
   font-weight: 500;
   color: var(--gc-text);
+  line-height: 1.4;
 }
-.model-benefit .material-symbols-outlined { font-size: 22px; color: var(--gc-blue); flex-shrink: 0; }
+.model-benefit .benefit-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.model-benefit .material-symbols-outlined { font-size: 24px; color: #fff; flex-shrink: 0; }
 
 /* Connector cards */
 .connector-grid {
@@ -661,16 +673,22 @@ strong { color: var(--gc-blue); font-weight: 700; }
 
     <div class="model-benefit-row reveal" data-step="2">
       <div class="model-benefit">
-        <span class="material-symbols-outlined">security</span>
-        One governance layer — all models flow through your institution's policies
+        <div class="benefit-icon-wrap" style="background: var(--gc-blue);">
+          <span class="material-symbols-outlined">security</span>
+        </div>
+        <div><strong>One Governance Layer</strong><br><span style="color: var(--gc-secondary); font-weight: 400;">All models flow through your institution's policies and compliance</span></div>
       </div>
       <div class="model-benefit">
-        <span class="material-symbols-outlined">swap_horiz</span>
-        Pick the best model for each task — reasoning, code, creative, analysis
+        <div class="benefit-icon-wrap" style="background: var(--gc-green);">
+          <span class="material-symbols-outlined">swap_horiz</span>
+        </div>
+        <div><strong>Best Model for Each Task</strong><br><span style="color: var(--gc-secondary); font-weight: 400;">Reasoning, code, creative, analysis — pick the right tool</span></div>
       </div>
       <div class="model-benefit">
-        <span class="material-symbols-outlined">shield</span>
-        Data stays in your Google Workspace tenant — no third-party exposure
+        <div class="benefit-icon-wrap" style="background: var(--gc-red);">
+          <span class="material-symbols-outlined">shield</span>
+        </div>
+        <div><strong>Data Stays in Your Tenant</strong><br><span style="color: var(--gc-secondary); font-weight: 400;">No third-party data exposure, regardless of which model runs</span></div>
       </div>
     </div>
 
